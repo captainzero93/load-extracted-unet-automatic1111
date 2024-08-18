@@ -31,7 +31,7 @@ This plugin allows you to load separate UNet and non-UNet parts of Stable Diffus
 
 1. Extract UNet files from your full model checkpoints using the [UNet Extractor and Remover tool](https://github.com/captainzero93/extract-unet-safetensor). This plugin is specifically tested with safetensor format files created by this tool.
 2. Rename your extracted UNet files descriptively (e.g., "sd15_animestyle_unet.safetensors").
-3. Place your UNet files in the `extensions/unet-loader-plugin/models` folder.
+3. Place your files in the `extensions/unet-loader-plugin/models` folder.
 4. In the Web UI, navigate to the "UNet Loader" tab.
 5. Select your UNet file from the "UNet File" dropdown.
 6. Select a non-UNet file (containing CLIP, VAE, etc.) from the "Non-UNet File" dropdown.

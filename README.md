@@ -1,6 +1,6 @@
 # UNet Loader Plugin for AUTOMATIC1111's Stable Diffusion Web UI
 
-This plugin allows you to load separate UNet and non-UNet parts of Stable Diffusion models, offering significant space-saving benefits and flexibility in model management.
+This plugin allows you to load separate UNet and non-UNet parts of Stable Diffusion models, offering significant space-saving benefits and flexibility in model management. Automatic1111 plugin based off my [UNet Extractor and Remover tool](https://github.com/captainzero93/extract-unet-safetensor)
 
 ## Why Use UNet Loader?
 

@@ -54,7 +54,6 @@ This plugin is designed to work with safetensor format files created by the [UNe
 1. When you select a UNet file and a non-UNet file, the plugin loads both parts into memory.
 2. It combines these parts to create a full model.
 3. The combined model is then set as the active model for generation.
-4. You can switch between different UNets quickly without reloading the entire model each time.
 
 ## Troubleshooting
 

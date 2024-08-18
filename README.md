@@ -1,4 +1,4 @@
-# Safetensor UNet Loader / merge Plugin for AUTOMATIC1111 Stable Diffusion Web UI
+# Safetensor UNet Loader / Merge Plugin for AUTOMATIC1111 Stable Diffusion Web UI
 
 This extension for AUTOMATIC1111 allows you to load separate UNet and non-UNet parts of .Safetensor Stable Diffusion models, offering significant space-saving benefits and flexibility in model management. Automatic1111 plugin based off my [UNet Extractor and Remover tool](https://github.com/captainzero93/extract-unet-safetensor)
 

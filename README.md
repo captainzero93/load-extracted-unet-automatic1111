@@ -64,7 +64,7 @@ This plugin is designed to work with safetensor format files created by the [UNe
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page or submit a PR.
 
 ## License
 

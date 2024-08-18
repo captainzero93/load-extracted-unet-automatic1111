@@ -69,7 +69,14 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License with an additional attribution requirement. This means you are free to use, modify, and distribute this software, provided that you include the following attribution in your project; See the [LICENSE](LICENSE) file for details.
+
+```
+This project uses UNet Extractor and Remover for Stable Diffusion 1.5, SDXL, and FLUX by Joe Faulkner (captainzero93).
+Original work: https://github.com/captainzero93/extract-unet-safetensor
+```
+
+See the [LICENSE](LICENSE) file for the full terms of the MIT License.
 
 ## Disclaimer
 

@@ -65,11 +65,11 @@ This plugin is designed to work with safetensor format files created by the [UNe
 
 ## Contributing
 
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
 
 ## License
 
-This project is licensed under the MIT License with an additional attribution requirement. This means you are free to use, modify, and distribute this software, provided that you include the following attribution in your project; See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License with an additional attribution requirement. This means you are free to use, modify, and distribute this software, provided that you include the following attribution in your project:
 
 ```
 This project uses UNet Extractor and Remover for Stable Diffusion 1.5, SDXL, and FLUX by Joe Faulkner (captainzero93).
@@ -86,4 +86,4 @@ This plugin is provided as-is, without any warranties or guarantees. Always ensu
 
 - This plugin is designed to work with files created by the [UNet Extractor and Remover tool](https://github.com/captainzero93/extract-unet-safetensor) by Joe Faulkner (captainzero93).
 - Thanks to the AUTOMATIC1111 Stable Diffusion Web UI community for support and feedback.
-- Special thanks to all the contributers to the main project.
+- Special thanks to all the contributors to the main project.

@@ -82,6 +82,6 @@ This plugin is provided as-is, without any warranties or guarantees. Always ensu
 
 ## Acknowledgements
 
-- This plugin is designed to work with files created by the [UNet Extractor and Remover tool](https://github.com/captainzero93/extract-unet-safetensor) by Joe Faulkner (captainzero93).
+- This plugin is designed to work with files created by the [UNet Extractor and Remover tool](https://github.com/captainzero93/extract-unet-safetensor) by  captainzero93.
 - Thanks to the AUTOMATIC1111 Stable Diffusion Web UI community for support and feedback.
 - Special thanks to all the contributors to the main project.

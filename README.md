@@ -6,11 +6,9 @@ This plugin allows you to load separate UNet and non-UNet parts of Stable Diffus
 
 1. **Space Efficiency**: Full checkpoints bundle the UNet, CLIP, VAE, and text encoder together. By using separate UNet files, you can reuse the same text encoder and other components for multiple models, saving gigabytes of space per additional model.
 
-2. **Flexibility**: Download the text encoder and other non-UNet components once, then use them with multiple UNet models. This reduces redundancy and saves storage space.
+2. **Practical Benefits**: For large models like SDXL or FLUX, multiple full checkpoints can quickly consume tens of gigabytes. Using extracted UNets instead can significantly reduce storage requirements.
 
-3. **Practical Benefits**: For large models like SDXL or FLUX, multiple full checkpoints can quickly consume tens of gigabytes. Using extracted UNets instead can significantly reduce storage requirements.
-
-4. **Future-Proofing**: As models continue to grow in complexity, the space-saving benefits of using separate UNets may become even more significant.
+3. **Future-Proofing**: As models continue to grow in complexity, the space-saving benefits of using separate UNets may become even more significant.
 
 ## Features
 

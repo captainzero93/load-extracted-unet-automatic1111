@@ -71,7 +71,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 This project is licensed under the MIT License with an additional attribution requirement. This means you are free to use, modify, and distribute this software, provided that you include the following attribution in your project:
 
 ```
-Original work: https://github.com/captainzero93/extract-unet-safetensor
+Original work: https://github.com/captainzero93/load-extracted-unet-automatic1111
 ```
 
 See the [LICENSE](LICENSE) file for the full terms of the MIT License.

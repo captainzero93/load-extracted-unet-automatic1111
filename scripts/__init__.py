@@ -1,4 +1,4 @@
-from .unet_loader import on_app_started
+from .unet_loader import register_unet_loader
 
-def initialize():
-    pass
+def on_app_started(demo, app):
+    register_unet_loader()

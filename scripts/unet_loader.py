@@ -30,6 +30,14 @@ class ModelCache:
 model_cache = ModelCache()
 last_combined_model_path = None
 
+def get_models_dir():
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(script_dir)
+    models_dir = os.path.join(parent_dir, "models")
+    if not os.path.exists(models_dir):
+        os.makedirs(models_dir)
+    return models_dir
+
 def get_safetensors_files(directory):
     return [f for f in os.listdir(directory) if f.endswith('.safetensors')]
 
@@ -38,7 +46,7 @@ async def load_file_async(file_path, device='cpu'):
 
 async def load_unet_and_non_unet(unet_file, non_unet_file):
     global last_combined_model_path
-    models_dir = os.path.join(shared.script_path, "extensions", "unet_loader_extension", "models")
+    models_dir = get_models_dir()
     unet_path = os.path.join(models_dir, unet_file)
     non_unet_path = os.path.join(models_dir, non_unet_file)
 
@@ -149,8 +157,7 @@ def cleanup_last_combined_model():
         return "No combined model to clean up or file not found."
 
 def on_ui_tabs():
-    models_dir = os.path.join(shared.script_path, "extensions", "unet_loader_extension", "models")
-    os.makedirs(models_dir, exist_ok=True)
+    models_dir = get_models_dir()
     safetensors_files = get_safetensors_files(models_dir)
 
     with gr.Blocks(analytics_enabled=False) as unet_loader_interface:
@@ -159,7 +166,7 @@ def on_ui_tabs():
         # UNet Loader
         This interface allows you to load separate UNet and non-UNet parts of a model.
         Select your .safetensors files from the dropdowns and click 'Load Model Parts'.
-        Place your .safetensors files in the 'extensions/unet_loader_extension/models' folder.
+        Place your .safetensors files in the 'models' folder within the UNet Loader extension directory.
         """
         )
         with gr.Row():
@@ -190,10 +197,7 @@ def on_ui_tabs():
 
     return [(unet_loader_interface, "UNet Loader", "unet_loader_tab")]
 
-def on_app_started(demo, app):
-    pass
-
-script_callbacks.on_ui_tabs(on_ui_tabs)
-script_callbacks.on_app_started(on_app_started)
+def register_unet_loader():
+    script_callbacks.on_ui_tabs(on_ui_tabs)
 
 print("UNet Loader script loaded successfully")

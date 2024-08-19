@@ -14,7 +14,7 @@ This extension for AUTOMATIC1111 allows you to load separate UNet and non-UNet p
 
 - Load separate UNet and non-UNet SafeTensors files
 - Combine UNet and non-UNet parts on-the-fly
-- Supports SD 1.5, SDXL, and FLUX models
+- Supports SD 1.5, SDXL, and FLUX models ( if supported in AUTOMATIC )
 - Efficient VRAM management
 - Easy-to-use interface integrated into AUTOMATIC1111's Web UI
 

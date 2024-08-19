@@ -7,6 +7,8 @@ from collections import OrderedDict
 import asyncio
 import gc
 
+print("UNet Loader script is being imported")
+
 class ModelCache:
     def __init__(self, max_size=3):
         self.cache = OrderedDict()
@@ -31,22 +33,45 @@ model_cache = ModelCache()
 last_combined_model_path = None
 
 def get_models_dir():
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    parent_dir = os.path.dirname(script_dir)
-    models_dir = os.path.join(parent_dir, "models")
-    if not os.path.exists(models_dir):
-        os.makedirs(models_dir)
-    return models_dir
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        parent_dir = os.path.dirname(script_dir)
+        extension_name = os.path.basename(parent_dir)
+        models_dir = os.path.join(parent_dir, "models")
+        
+        if not os.path.exists(models_dir):
+            os.makedirs(models_dir)
+            print(f"Created models directory: {models_dir}")
+        else:
+            print(f"Found existing models directory: {models_dir}")
+        
+        return models_dir
+    except Exception as e:
+        print(f"Error in get_models_dir: {str(e)}")
+        return None
 
 def get_safetensors_files(directory):
-    return [f for f in os.listdir(directory) if f.endswith('.safetensors')]
+    try:
+        files = [f for f in os.listdir(directory) if f.endswith('.safetensors')]
+        print(f"Found safetensors files: {files}")
+        return files
+    except Exception as e:
+        print(f"Error in get_safetensors_files: {str(e)}")
+        return []
 
 async def load_file_async(file_path, device='cpu'):
-    return await asyncio.to_thread(load_file, file_path, device)
+    try:
+        return await asyncio.to_thread(load_file, file_path, device)
+    except Exception as e:
+        print(f"Error in load_file_async: {str(e)}")
+        return None
 
 async def load_unet_and_non_unet(unet_file, non_unet_file):
     global last_combined_model_path
     models_dir = get_models_dir()
+    if not models_dir:
+        return "Error: Unable to locate models directory."
+
     unet_path = os.path.join(models_dir, unet_file)
     non_unet_path = os.path.join(models_dir, non_unet_file)
 
@@ -70,6 +95,9 @@ async def load_unet_and_non_unet(unet_file, non_unet_file):
             load_file_async(non_unet_path),
             load_file_async(unet_path)
         )
+
+        if non_unet_state_dict is None or unet_state_dict is None:
+            return "Error: Failed to load one or both model parts."
 
         print("Files loaded successfully")
 
@@ -158,6 +186,10 @@ def cleanup_last_combined_model():
 
 def on_ui_tabs():
     models_dir = get_models_dir()
+    if not models_dir:
+        print("Error: Unable to locate models directory.")
+        return []
+
     safetensors_files = get_safetensors_files(models_dir)
 
     with gr.Blocks(analytics_enabled=False) as unet_loader_interface:
@@ -195,9 +227,14 @@ def on_ui_tabs():
             outputs=[output_text]
         )
 
+    print("UNet Loader interface created")
     return [(unet_loader_interface, "UNet Loader", "unet_loader_tab")]
 
-def register_unet_loader():
-    script_callbacks.on_ui_tabs(on_ui_tabs)
+def on_app_started(demo, app):
+    print("UNet Loader on_app_started function is being called")
+    # You can add any initialization code here if needed
 
 print("UNet Loader script loaded successfully")
+
+script_callbacks.on_ui_tabs(on_ui_tabs)
+script_callbacks.on_app_started(on_app_started)

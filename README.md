@@ -38,27 +38,43 @@ This plugin lets you:
    - Choose a non-UNet file from the "Non-UNet File" dropdown.
    - Click "Load Model Parts".
 7. The plugin will combine these parts into a full model.
-8. You can now use this combined model in the txt2img and img2img tabs just like any other model.
+8. **Important**: Wait for the extension output box to display "UNet and non-UNet parts combined and loaded successfully." This indicates that the model is ready to use, even if the UI doesn't show the loaded model name.
+9. You can now use this combined model in the txt2img and img2img tabs just like any other model.
 
 ## Important Notes
 
 - This plugin works best with files created by the [UNet Extractor and Remover tool](https://github.com/captainzero93/extract-unet-safetensor).
 - Make sure your computer (especially your GPU) has enough memory to handle the combined model.
 - If things seem slow, try restarting the Web UI to clear the memory.
+- The UI may not always show the loaded model name, but this doesn't affect functionality. Always refer to the extension output box for confirmation.
+- The extension creates temporary combined model files. Use the "Cleanup Last Combined Model" button to remove these when you're done.
 
 ## Troubleshooting
 
 If you have problems:
-1. Check that your files are in the correct folder.
+1. Check that your files are in the correct folder (`extensions/load-extracted-unet-automatic1111/models`).
 2. Make sure you're using files created by the UNet Extractor tool.
-3. Look at the console output for error messages.
-4. If it's still not working, try restarting the Web UI.
+3. Look at the console output and the extension output box for error messages or success confirmation.
+4. If the UI doesn't show the loaded model, but the output box confirms it's loaded, proceed with generation anyway.
+5. Try refreshing the file list using the "Refresh File List" button if new files aren't appearing.
+6. If it's still not working, try restarting the Web UI.
+7. Ensure you have enough VRAM for the combined model. If you're getting out-of-memory errors, try using a smaller model or freeing up GPU resources.
+
+## Recent Updates
+
+- Added dynamic model directory detection for better compatibility with different installation methods.
+- Improved error handling and logging for easier troubleshooting.
+- Added a "Refresh File List" button to update the file dropdowns without restarting.
+- Implemented a model cache to speed up loading of previously combined models.
 
 ## Getting Help
 
 If you're stuck, you can:
 1. Check the [issues page](https://github.com/captainzero93/load-extracted-unet-automatic1111/issues) to see if others have had the same problem.
-2. Create a new issue if your problem isn't already listed.
+2. Create a new issue if your problem isn't already listed. When reporting issues, please include:
+   - The exact steps you took
+   - Any error messages from the console or extension output box
+   - Your system specifications (OS, GPU, VRAM)
 
 ## Legal Stuff
 

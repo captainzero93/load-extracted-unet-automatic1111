@@ -1,5 +1,7 @@
 import launch
 
+print("UNet Loader install script is running")
+
 if not launch.is_installed("safetensors"):
     launch.run_pip("install safetensors", "requirements for UNet Loader")
 
